@@ -1,37 +1,12 @@
-package castilho.APIStellarBlade.domain.model.entity.Natyba;
+package castilho.APIStellarBlade.dto.Naytiba;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.persistence.*;
+import castilho.APIStellarBlade.domain.model.entity.Natyba.NaytibaType;
 
-@Entity(name = "tb_Naytiba")
-public class Naytiba {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(nullable = false, length = 50, unique = true)
+public class NaytibaRequestDTO {
     private String name;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "type_id")
-    @JsonIgnoreProperties("naytibas")
-    private NaytibaType type;
-
-    @Column(length = 500)
+    private long idType;
     private String descriptionEcologicalInformation;
-
-    @Column(length = 500)
     private String descriptionCombatInformation;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -41,12 +16,12 @@ public class Naytiba {
         this.name = name;
     }
 
-    public NaytibaType getType() {
-        return type;
+    public long getIdType() {
+        return idType;
     }
 
-    public void setType(NaytibaType type) {
-        this.type = type;
+    public void setIdType(long idType) {
+        this.idType = idType;
     }
 
     public String getDescriptionEcologicalInformation() {

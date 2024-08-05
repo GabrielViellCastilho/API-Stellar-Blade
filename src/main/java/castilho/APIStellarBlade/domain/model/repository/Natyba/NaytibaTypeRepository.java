@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface NaytibaTypeRepository extends JpaRepository<NaytibaType, Long> {
+    boolean existsByType(String type);
 }
