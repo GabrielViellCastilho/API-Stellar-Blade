@@ -1,7 +1,7 @@
 package castilho.APIStellarBlade.databaseInitializer.Natyba;
 
-import castilho.APIStellarBlade.domain.model.entity.Natyba.Naytiba;
-import castilho.APIStellarBlade.domain.model.entity.Natyba.NaytibaType;
+import castilho.APIStellarBlade.domain.model.entity.Naytiba.Naytiba;
+import castilho.APIStellarBlade.domain.model.entity.Naytiba.NaytibaType;
 import castilho.APIStellarBlade.domain.model.repository.Natyba.NaytibaRepository;
 import castilho.APIStellarBlade.domain.model.repository.Natyba.NaytibaTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;

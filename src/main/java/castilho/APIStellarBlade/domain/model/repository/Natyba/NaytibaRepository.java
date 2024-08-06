@@ -1,6 +1,6 @@
 package castilho.APIStellarBlade.domain.model.repository.Natyba;
 
-import castilho.APIStellarBlade.domain.model.entity.Natyba.Naytiba;
+import castilho.APIStellarBlade.domain.model.entity.Naytiba.Naytiba;
 import castilho.APIStellarBlade.dto.Naytiba.NaytibaDTO;
 import castilho.APIStellarBlade.dto.Naytiba.NaytibaIdAndNameDTO;
 import org.springframework.data.jpa.repository.JpaRepository;

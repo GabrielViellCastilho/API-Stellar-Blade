@@ -1,11 +1,11 @@
 package castilho.APIStellarBlade.controller.Naytiba;
 
-import castilho.APIStellarBlade.domain.model.entity.Natyba.NaytibaType;
 import castilho.APIStellarBlade.dto.Naytiba.NaytibaDTO;
 import castilho.APIStellarBlade.dto.Naytiba.NaytibaIdAndNameDTO;
 import castilho.APIStellarBlade.dto.Naytiba.NaytibaRequestDTO;
 import castilho.APIStellarBlade.service.Naytiba.NaytibaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,25 +24,31 @@ public class NaytibaController {
         return ResponseEntity.ok(naytibaService.getAllNaytibas());
     }
 
-    @GetMapping("/get_id")
+    @GetMapping("/names-and-ids")
     public ResponseEntity<List<NaytibaIdAndNameDTO>> listNaytibaIdAndName() {
         return  ResponseEntity.ok(naytibaService.getAllNaytibaNamesAndIds());
     }
 
-    @GetMapping("/search/name/{nameNaytiba}")
-    public ResponseEntity<NaytibaDTO> searchNaytibaByName(@PathVariable String nameNaytiba) {
-        return ResponseEntity.ok((naytibaService.getNaytibaByName(nameNaytiba)));
+    @GetMapping("/search/name/{name}")
+    public ResponseEntity<NaytibaDTO> searchNaytibaByName(@PathVariable String name) {
+        return ResponseEntity.ok((naytibaService.getNaytibaByName(name)));
     }
 
-    @GetMapping("/search/id/{idNaytiba}")
-    public ResponseEntity<NaytibaDTO> searchNaytibaById(@PathVariable Long idNaytiba) {
-        return ResponseEntity.ok(naytibaService.getNaytibaById(idNaytiba));
+    @GetMapping("/search/id/{id}")
+    public ResponseEntity<NaytibaDTO> searchNaytibaById(@PathVariable Long id) {
+        return ResponseEntity.ok(naytibaService.getNaytibaById(id));
     }
 
 
     @PostMapping("/create")
     public ResponseEntity<NaytibaDTO> createNaytiba(@RequestBody NaytibaRequestDTO naytibaRequestDTO) {
         NaytibaDTO result = naytibaService.createNaytiba(naytibaRequestDTO);
-        return ResponseEntity.ok(result);
+        return ResponseEntity.status(HttpStatus.CREATED).body(result);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> deleteNaytiba(@PathVariable Long id){
+        naytibaService.deleteNaytibaById(id);
+        return ResponseEntity.noContent().build();
     }
 }

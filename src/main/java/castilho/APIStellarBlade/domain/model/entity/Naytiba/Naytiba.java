@@ -1,6 +1,5 @@
-package castilho.APIStellarBlade.domain.model.entity.Natyba;
+package castilho.APIStellarBlade.domain.model.entity.Naytiba;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 

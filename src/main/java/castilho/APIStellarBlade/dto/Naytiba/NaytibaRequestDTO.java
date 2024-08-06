@@ -1,6 +1,6 @@
 package castilho.APIStellarBlade.dto.Naytiba;
 
-import castilho.APIStellarBlade.domain.model.entity.Natyba.NaytibaType;
+
 
 public class NaytibaRequestDTO {
     private String name;

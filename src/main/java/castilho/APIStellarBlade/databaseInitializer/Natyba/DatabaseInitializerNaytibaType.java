@@ -1,13 +1,10 @@
 package castilho.APIStellarBlade.databaseInitializer.Natyba;
 
-import castilho.APIStellarBlade.domain.model.entity.Natyba.NaytibaType;
+import castilho.APIStellarBlade.domain.model.entity.Naytiba.NaytibaType;
 import castilho.APIStellarBlade.domain.model.repository.Natyba.NaytibaTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Component
 public class DatabaseInitializerNaytibaType implements CommandLineRunner {
