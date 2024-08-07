@@ -11,11 +11,11 @@ Welcome to this unofficial RESTful API created by a fan game **Stellar Blade**. 
 - [Endpoints](#endpoints)
   - [Naytiba](#naytiba)
     - [Naytiba Type ](#naytiba-type)
+  - [Character](#character)
 - [Contact](#contact)
 
 ## In development
 - [Endpoints]()
-  - [Character](#character)
   - [Skills](#skills)
     - [Skills Type](#skills-type)
   - [Weapon](#weapon)
@@ -236,6 +236,83 @@ Welcome to this unofficial RESTful API created by a fan game **Stellar Blade**. 
 
   **Response:**
   - **Status Code:** `204 No Content`
+
+### Character
+
+- **GET /character**
+
+  **Description:** Retrieves all characters
+
+  **Response:**
+  ```json
+   [
+    {
+        "id": "long",            // The unique identifier of the character
+        "name": "string",        // The name of the character
+        "description": "string"  // A description of the character
+    },
+    {
+        "id": "long",            // The unique identifier of the character
+        "name": "string",        // The name of the character
+        "description": "string"  // A description of the character
+    }
+  ]
+  ```
+
+- **GET /character/search/name/{name}**
+
+  **Description:** Retrieves a character by its name
+
+  **Response:**
+  ```json
+  {
+      "id": "long",            // The unique identifier of the character
+      "name": "string",        // The name of the character
+      "description": "string"  // A description of the character
+  }
+  ```
+
+- **GET /character/search/id/{id}**
+
+  **Description:** Retrieves a character by its id
+
+  **Response:**
+  ```json
+  {
+      "id": "long",            // The unique identifier of the character
+      "name": "string",        // The name of the character
+      "description": "string"  // A description of the character
+  }
+  ```
+
+- **POST /character/create**
+
+  **Description:** Creates a new character
+
+  **Request Body:**
+  ```json
+  {
+      "name": "string",        // The name of the character
+      "description": "string"  // A description of the character
+  }
+  ```
+
+  **Response:**
+  ```json
+  {
+      "id": "long",            // The unique identifier of the character
+      "name": "string",        // The name of the character
+      "description": "string"  // A description of the character
+  }
+  ```
+
+- **DELETE /character/delete/{id}**
+
+  **Description:** Deletes a character by its id
+
+  **Response:**
+  - **Status Code:** `204 No Content`
+  
 
 ### Contact
 

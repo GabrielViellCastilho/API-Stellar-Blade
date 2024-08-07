@@ -1,6 +1,8 @@
 package castilho.APIStellarBlade.exception;
 
 
+import castilho.APIStellarBlade.exception.Character.CharacterAlreadyExistException;
+import castilho.APIStellarBlade.exception.Character.CharacterNotFoundException;
 import castilho.APIStellarBlade.exception.Naytiba.NaytibaAlreadyExistsException;
 import castilho.APIStellarBlade.exception.Naytiba.NaytibaNotFoundException;
 import castilho.APIStellarBlade.exception.Naytiba.NaytibaTypeAlreadyExistsException;
@@ -30,6 +32,16 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(NaytibaTypeAlreadyExistsException.class)
     public ResponseEntity<String> handleNaytibaTypeAlreadyExistsException(NaytibaTypeAlreadyExistsException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(CharacterNotFoundException.class)
+    public ResponseEntity<String> handleCharacterNotFoundException(CharacterNotFoundException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(CharacterAlreadyExistException.class)
+    public ResponseEntity<String> handleCharacterAlreadyExistException(CharacterAlreadyExistException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
     }
 }
