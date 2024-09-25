@@ -28,7 +28,7 @@ Welcome to this unofficial RESTful API created by a fan game **Stellar Blade**. 
     - [Face Decoration](#face-decoration)
     - [Hairs](#hairs)
     - [Drone Appearance](#drone-appearance)
-   - [Fish / Peixe](#fish)
+   - [Fish](#fish)
      - [Size](#size)
      - [Favorite Bait](#favorita-bait)
 
