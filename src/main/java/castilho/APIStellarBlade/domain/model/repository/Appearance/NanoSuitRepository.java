@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface NanoSuitRepository extends JpaRepository<NanoSuit, Long> {
+    boolean existsByName(String name);
+
+    NanoSuit findByName(String name);
 }

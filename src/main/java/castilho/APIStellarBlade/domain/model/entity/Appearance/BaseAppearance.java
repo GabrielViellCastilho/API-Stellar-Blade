@@ -34,6 +34,13 @@ public abstract class BaseAppearance {
         this.name = name;
     }
 
+    public int getNumberOfStars() {
+        return numberOfStars;
+    }
+
+    public void setNumberOfStars(int numberOfStars) {
+        this.numberOfStars = numberOfStars;
+    }
 
     public String getDescription() {
         return description;

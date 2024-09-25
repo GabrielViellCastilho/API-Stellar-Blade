@@ -1,6 +1,8 @@
 package castilho.APIStellarBlade.exception;
 
 
+import castilho.APIStellarBlade.exception.Appearance.NanoSuit.NanoSuitAlreadyExistException;
+import castilho.APIStellarBlade.exception.Appearance.NanoSuit.NanoSuitNotFoundException;
 import castilho.APIStellarBlade.exception.Character.CharacterAlreadyExistException;
 import castilho.APIStellarBlade.exception.Character.CharacterNotFoundException;
 import castilho.APIStellarBlade.exception.Naytiba.NaytibaAlreadyExistsException;
@@ -42,6 +44,16 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(CharacterAlreadyExistException.class)
     public ResponseEntity<String> handleCharacterAlreadyExistException(CharacterAlreadyExistException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(NanoSuitNotFoundException.class)
+    public ResponseEntity<String> handleNanoSuitNotFoundException(NanoSuitNotFoundException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(NanoSuitAlreadyExistException.class)
+    public ResponseEntity<String> handleNanoSuitAlreadyExistException(NanoSuitAlreadyExistException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
     }
 }
