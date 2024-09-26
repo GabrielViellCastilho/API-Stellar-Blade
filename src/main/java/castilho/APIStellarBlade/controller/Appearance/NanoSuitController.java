@@ -19,7 +19,7 @@ public class NanoSuitController {
 
     @GetMapping
     public ResponseEntity<List<NanoSuit>> getAll() {
-        return ResponseEntity.ok(nanoSuitService.getAll());
+        return ResponseEntity.ok(nanoSuitService.getAllNanoSuits());
     }
 
     @GetMapping("/search/name/{name}")

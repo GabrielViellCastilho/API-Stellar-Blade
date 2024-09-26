@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface HairsRepository extends JpaRepository<Hairs, Long> {
+    boolean existsByName(String name);
+
+    Hairs findByName(String name);
 }

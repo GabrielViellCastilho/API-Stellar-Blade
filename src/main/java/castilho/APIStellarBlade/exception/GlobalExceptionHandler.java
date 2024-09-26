@@ -1,6 +1,8 @@
 package castilho.APIStellarBlade.exception;
 
 
+import castilho.APIStellarBlade.exception.Appearance.Hairs.HairAlreadyExistException;
+import castilho.APIStellarBlade.exception.Appearance.Hairs.HairNotFoundException;
 import castilho.APIStellarBlade.exception.Appearance.NanoSuit.NanoSuitAlreadyExistException;
 import castilho.APIStellarBlade.exception.Appearance.NanoSuit.NanoSuitNotFoundException;
 import castilho.APIStellarBlade.exception.Character.CharacterAlreadyExistException;
@@ -54,6 +56,16 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(NanoSuitAlreadyExistException.class)
     public ResponseEntity<String> handleNanoSuitAlreadyExistException(NanoSuitAlreadyExistException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(HairNotFoundException.class)
+    public  ResponseEntity<String> handleHairNotFoundException(HairNotFoundException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(HairAlreadyExistException.class)
+    public ResponseEntity<String> handleHairAlreadyExistException(HairAlreadyExistException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
     }
 }

@@ -16,7 +16,7 @@ public class NanoSuitService {
     @Autowired
     private NanoSuitRepository nanoSuitRepository;
 
-    public List<NanoSuit> getAll() {
+    public List<NanoSuit> getAllNanoSuits(){
         return nanoSuitRepository.findAll();
     }
     
