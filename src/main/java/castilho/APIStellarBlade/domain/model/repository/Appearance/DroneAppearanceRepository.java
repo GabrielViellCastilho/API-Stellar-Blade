@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DroneAppearanceRepository extends JpaRepository<DroneAppearance, Long> {
+    boolean existsByName(String name);
+
+   DroneAppearance findByName(String name);
 }
