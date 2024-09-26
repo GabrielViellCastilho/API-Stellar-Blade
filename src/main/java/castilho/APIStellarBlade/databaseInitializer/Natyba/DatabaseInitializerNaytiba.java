@@ -6,9 +6,11 @@ import castilho.APIStellarBlade.domain.model.repository.Natyba.NaytibaRepository
 import castilho.APIStellarBlade.domain.model.repository.Natyba.NaytibaTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Component
+@Order(2)
 public class DatabaseInitializerNaytiba implements CommandLineRunner {
 
     @Autowired

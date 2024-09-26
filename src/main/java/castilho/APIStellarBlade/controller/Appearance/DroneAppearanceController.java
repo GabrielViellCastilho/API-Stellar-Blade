@@ -1,7 +1,7 @@
 package castilho.APIStellarBlade.controller.Appearance;
 
 import castilho.APIStellarBlade.domain.model.entity.Appearance.DroneAppearance;
-import castilho.APIStellarBlade.dto.Appearance.DroneAppearanceDTO;
+import castilho.APIStellarBlade.dto.Appearance.DroneAppearanceRequestDTO;
 import castilho.APIStellarBlade.service.Appearance.DroneAppearanceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,8 +33,8 @@ public class DroneAppearanceController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<DroneAppearance> create(@RequestBody DroneAppearanceDTO droneAppearanceDTO) {
-        DroneAppearance droneAppearance = droneAppearanceService.createDroneAppearance(droneAppearanceDTO);
+    public ResponseEntity<DroneAppearance> create(@RequestBody DroneAppearanceRequestDTO droneAppearanceRequestDTO) {
+        DroneAppearance droneAppearance = droneAppearanceService.createDroneAppearance(droneAppearanceRequestDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(droneAppearance);
     }
 

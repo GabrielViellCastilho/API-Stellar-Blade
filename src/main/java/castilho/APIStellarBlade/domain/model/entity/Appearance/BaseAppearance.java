@@ -12,7 +12,7 @@ public abstract class BaseAppearance {
     @Column(nullable = false,length = 50, unique = true)
     private String name;
 
-    @Column(nullable = false, unique = true, precision = 1)
+    @Column(nullable = false, precision = 1)
     private int numberOfStars;
 
     @Column(nullable = false,length = 500, unique = true)

@@ -3,6 +3,8 @@ package castilho.APIStellarBlade.exception;
 
 import castilho.APIStellarBlade.exception.Appearance.DroneAppearance.DroneAppearanceAlreadyExistException;
 import castilho.APIStellarBlade.exception.Appearance.DroneAppearance.DroneAppearanceNotFoundException;
+import castilho.APIStellarBlade.exception.Appearance.Earrings.EarringsAlreadyExistException;
+import castilho.APIStellarBlade.exception.Appearance.Earrings.EarringsNotFoundException;
 import castilho.APIStellarBlade.exception.Appearance.Hairs.HairAlreadyExistException;
 import castilho.APIStellarBlade.exception.Appearance.Hairs.HairNotFoundException;
 import castilho.APIStellarBlade.exception.Appearance.NanoSuit.NanoSuitAlreadyExistException;
@@ -78,6 +80,16 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(DroneAppearanceAlreadyExistException.class)
     public ResponseEntity<String> handleDroneAppearanceAlreadyExistException(DroneAppearanceAlreadyExistException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(EarringsNotFoundException.class)
+    public  ResponseEntity<String> handleEachDroneAppearanceNotFoundException(EarringsNotFoundException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(EarringsAlreadyExistException.class)
+    public  ResponseEntity<String> handleEachDroneAppearanceAlreadyExistException(EarringsAlreadyExistException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
     }
 }

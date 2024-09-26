@@ -2,7 +2,7 @@ package castilho.APIStellarBlade.service.Appearance;
 
 import castilho.APIStellarBlade.domain.model.entity.Appearance.DroneAppearance;
 import castilho.APIStellarBlade.domain.model.repository.Appearance.DroneAppearanceRepository;
-import castilho.APIStellarBlade.dto.Appearance.DroneAppearanceDTO;
+import castilho.APIStellarBlade.dto.Appearance.DroneAppearanceRequestDTO;
 import castilho.APIStellarBlade.exception.Appearance.DroneAppearance.DroneAppearanceAlreadyExistException;
 import castilho.APIStellarBlade.exception.Appearance.DroneAppearance.DroneAppearanceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,14 +34,14 @@ public class DroneAppearanceService {
         return droneAppearanceRepository.findByName(name);
     }
 
-    public DroneAppearance createDroneAppearance(DroneAppearanceDTO droneAppearanceDTO) {
-        if (droneAppearanceRepository.existsByName(droneAppearanceDTO.getName())) {
-            throw new DroneAppearanceAlreadyExistException(droneAppearanceDTO.getName());
+    public DroneAppearance createDroneAppearance(DroneAppearanceRequestDTO droneAppearanceRequestDTO) {
+        if (droneAppearanceRepository.existsByName(droneAppearanceRequestDTO.getName())) {
+            throw new DroneAppearanceAlreadyExistException(droneAppearanceRequestDTO.getName());
         }
         DroneAppearance droneAppearance = new DroneAppearance();
-        droneAppearance.setName(droneAppearanceDTO.getName());
-        droneAppearance.setDescription(droneAppearanceDTO.getDescription());
-        droneAppearance.setNumberOfStars(droneAppearanceDTO.getNumberOfStars());
+        droneAppearance.setName(droneAppearanceRequestDTO.getName());
+        droneAppearance.setDescription(droneAppearanceRequestDTO.getDescription());
+        droneAppearance.setNumberOfStars(droneAppearanceRequestDTO.getNumberOfStars());
         droneAppearanceRepository.save(droneAppearance);
         return droneAppearance;
     }

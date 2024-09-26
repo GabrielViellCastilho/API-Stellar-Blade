@@ -1,6 +1,6 @@
 package castilho.APIStellarBlade.dto.Appearance;
 
-public class DroneAppearanceDTO {
+public class DroneAppearanceRequestDTO {
     private String name;
     private String description;
     private int numberOfStars;
