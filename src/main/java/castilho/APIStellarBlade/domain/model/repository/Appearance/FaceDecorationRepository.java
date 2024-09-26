@@ -6,4 +6,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FaceDecorationRepository extends JpaRepository<FaceDecoration, Long> {
+
+    boolean existsByName(String name);
+
+    FaceDecoration findByName(String name);
 }

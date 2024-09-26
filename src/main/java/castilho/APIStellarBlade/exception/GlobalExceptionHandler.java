@@ -5,6 +5,8 @@ import castilho.APIStellarBlade.exception.Appearance.DroneAppearance.DroneAppear
 import castilho.APIStellarBlade.exception.Appearance.DroneAppearance.DroneAppearanceNotFoundException;
 import castilho.APIStellarBlade.exception.Appearance.Earrings.EarringsAlreadyExistException;
 import castilho.APIStellarBlade.exception.Appearance.Earrings.EarringsNotFoundException;
+import castilho.APIStellarBlade.exception.Appearance.FaceDecoration.FaceDecorationAlreadyExistException;
+import castilho.APIStellarBlade.exception.Appearance.FaceDecoration.FaceDecorationNotFoundException;
 import castilho.APIStellarBlade.exception.Appearance.Hairs.HairAlreadyExistException;
 import castilho.APIStellarBlade.exception.Appearance.Hairs.HairNotFoundException;
 import castilho.APIStellarBlade.exception.Appearance.NanoSuit.NanoSuitAlreadyExistException;
@@ -90,6 +92,16 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(EarringsAlreadyExistException.class)
     public  ResponseEntity<String> handleEachDroneAppearanceAlreadyExistException(EarringsAlreadyExistException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(FaceDecorationNotFoundException.class)
+    public  ResponseEntity<String> handleEachFaceDecorationNotFoundException(FaceDecorationNotFoundException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(FaceDecorationAlreadyExistException.class)
+    public  ResponseEntity<String> handleEachFaceDecorationAlreadyExistException(FaceDecorationAlreadyExistException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
     }
 }
