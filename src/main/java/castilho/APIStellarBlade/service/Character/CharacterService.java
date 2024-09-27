@@ -35,13 +35,15 @@ public class CharacterService {
     }
 
     public Character createCharacter(CharacterRequestDTO characterRequestDTO) {
+
+        if (characterRepository.existsByName(characterRequestDTO.getName())) {
+            throw new CharacterAlreadyExistException(characterRequestDTO.getName());
+        }
+
         Character character = new Character();
         character.setName(characterRequestDTO.getName());
         character.setDescription(characterRequestDTO.getDescription());
 
-        if (characterRepository.existsByName(character.getName())) {
-            throw new CharacterAlreadyExistException(character.getName());
-        }
         return characterRepository.save(character);
 
     }
