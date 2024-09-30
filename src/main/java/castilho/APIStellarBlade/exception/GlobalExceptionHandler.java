@@ -17,6 +17,8 @@ import castilho.APIStellarBlade.exception.Naytiba.NaytibaAlreadyExistsException;
 import castilho.APIStellarBlade.exception.Naytiba.NaytibaNotFoundException;
 import castilho.APIStellarBlade.exception.Naytiba.NaytibaTypeAlreadyExistsException;
 import castilho.APIStellarBlade.exception.Naytiba.NaytibaTypeNotFoundException;
+import castilho.APIStellarBlade.exception.Skills.Skills.SkillsAlreadyExistException;
+import castilho.APIStellarBlade.exception.Skills.Skills.SkillsNotFoundException;
 import castilho.APIStellarBlade.exception.Skills.SkillsType.SkillsTypeAlreadyExistException;
 import castilho.APIStellarBlade.exception.Skills.SkillsType.SkillsTypeNotFoundException;
 import org.springframework.http.HttpStatus;
@@ -114,6 +116,16 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(SkillsTypeAlreadyExistException.class)
     public ResponseEntity<String> handleSkillsTypeAlreadyExistException(SkillsTypeAlreadyExistException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(SkillsNotFoundException.class)
+    public ResponseEntity<String> handleSkillsNotFoundException(SkillsNotFoundException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(SkillsAlreadyExistException.class)
+    public ResponseEntity<String> handleSkillsAlreadyExistException(SkillsAlreadyExistException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
     }
 }

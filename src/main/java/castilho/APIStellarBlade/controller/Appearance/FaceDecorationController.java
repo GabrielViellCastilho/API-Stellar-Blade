@@ -1,10 +1,7 @@
 package castilho.APIStellarBlade.controller.Appearance;
 
-import castilho.APIStellarBlade.domain.model.entity.Appearance.Earrings;
 import castilho.APIStellarBlade.domain.model.entity.Appearance.FaceDecoration;
-import castilho.APIStellarBlade.dto.Appearance.EarringsRequestDTO;
 import castilho.APIStellarBlade.dto.Appearance.FaceDecorationDTO;
-import castilho.APIStellarBlade.service.Appearance.EarringsService;
 import castilho.APIStellarBlade.service.Appearance.FaceDecorationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
