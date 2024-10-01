@@ -13,6 +13,8 @@ import castilho.APIStellarBlade.exception.Appearance.NanoSuit.NanoSuitAlreadyExi
 import castilho.APIStellarBlade.exception.Appearance.NanoSuit.NanoSuitNotFoundException;
 import castilho.APIStellarBlade.exception.Character.CharacterAlreadyExistException;
 import castilho.APIStellarBlade.exception.Character.CharacterNotFoundException;
+import castilho.APIStellarBlade.exception.Fish.Size.SizeAlreadyExistException;
+import castilho.APIStellarBlade.exception.Fish.Size.SizeNotFoundException;
 import castilho.APIStellarBlade.exception.Naytiba.NaytibaAlreadyExistsException;
 import castilho.APIStellarBlade.exception.Naytiba.NaytibaNotFoundException;
 import castilho.APIStellarBlade.exception.Naytiba.NaytibaTypeAlreadyExistsException;
@@ -126,6 +128,16 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(SkillsAlreadyExistException.class)
     public ResponseEntity<String> handleSkillsAlreadyExistException(SkillsAlreadyExistException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(SizeNotFoundException.class)
+    public ResponseEntity<String> handleSizeNotFoundException(SizeNotFoundException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(SizeAlreadyExistException.class)
+    public ResponseEntity<String> handleSizeAlreadyExistException(SizeAlreadyExistException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
     }
 }
