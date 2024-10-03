@@ -12,10 +12,10 @@ public class Gear {
     @Column(nullable = false, unique = true, length = 50)
     private String name;
 
-    @Column(nullable = false, unique = true, precision = 1)
+    @Column(nullable = false, precision = 1)
     private int numberOfStars;
 
-    @Column(length = 100, unique = true, nullable = false)
+    @Column(length = 100, nullable = false)
     private String status;
 
     @Column(length = 500, nullable = false, unique = true)
@@ -51,5 +51,13 @@ public class Gear {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getNumberOfStars() {
+        return numberOfStars;
+    }
+
+    public void setNumberOfStars(int numberOfStars) {
+        this.numberOfStars = numberOfStars;
     }
 }

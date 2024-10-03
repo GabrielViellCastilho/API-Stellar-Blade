@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface GearRepository extends JpaRepository<Gear, Long> {
+    boolean existsByName(String name);
+
+    Gear findByName(String name);
 }

@@ -27,6 +27,8 @@ import castilho.APIStellarBlade.exception.Skills.Skills.SkillsAlreadyExistExcept
 import castilho.APIStellarBlade.exception.Skills.Skills.SkillsNotFoundException;
 import castilho.APIStellarBlade.exception.Skills.SkillsType.SkillsTypeAlreadyExistException;
 import castilho.APIStellarBlade.exception.Skills.SkillsType.SkillsTypeNotFoundException;
+import castilho.APIStellarBlade.exception.Weapon.Gear.GearAlreadyExistException;
+import castilho.APIStellarBlade.exception.Weapon.Gear.GearNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -162,6 +164,16 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(FishAlreadyExistException.class)
     public ResponseEntity<String> handleFishAlreadyExistException(FishAlreadyExistException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(GearNotFoundException.class)
+    public ResponseEntity<String> handleGearNotFoundException(GearNotFoundException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(GearAlreadyExistException.class)
+    public ResponseEntity<String> handleGearAlreadyExistException(GearAlreadyExistException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
     }
 }
