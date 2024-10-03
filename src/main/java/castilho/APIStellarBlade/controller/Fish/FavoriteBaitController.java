@@ -26,17 +26,17 @@ public class FavoriteBaitController {
         return ResponseEntity.ok(favoriteBaitService.getFavoriteBaitById(id));
     }
 
-    @GetMapping("search/name/{name}")
+    @GetMapping("/search/name/{name}")
     public ResponseEntity<FavoriteBait> getByName(@PathVariable String name) {
         return ResponseEntity.ok(favoriteBaitService.getFavoriteBaitByName(name));
     }
 
-    @PostMapping("create")
+    @PostMapping("/create")
     public ResponseEntity<FavoriteBait> create(@RequestBody FavoriteBaitRequestDTO favoriteBaitRequestDTO) {
         return ResponseEntity.status(HttpStatus.CREATED).body(favoriteBaitService.createFavoriteBait(favoriteBaitRequestDTO));
     }
 
-    @DeleteMapping("delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<FavoriteBait> delete(@PathVariable long id) {
         favoriteBaitService.deleteFavoriteBait(id);
         return ResponseEntity.noContent().build();

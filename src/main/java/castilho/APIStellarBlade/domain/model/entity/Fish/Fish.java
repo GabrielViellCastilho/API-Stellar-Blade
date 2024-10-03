@@ -21,7 +21,7 @@ public class Fish {
     @ManyToOne(fetch = FetchType.EAGER)
     private Size size;
 
-    @Column(nullable = false, unique = true, precision = 1)
+    @Column(nullable = false, precision = 1)
     private int numberOfStars;
 
     public Long getId() {
@@ -64,4 +64,11 @@ public class Fish {
         this.size = size;
     }
 
+    public int getNumberOfStars() {
+        return numberOfStars;
+    }
+
+    public void setNumberOfStars(int numberOfStars) {
+        this.numberOfStars = numberOfStars;
+    }
 }
