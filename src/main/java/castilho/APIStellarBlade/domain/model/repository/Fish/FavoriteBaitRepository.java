@@ -6,4 +6,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FavoriteBaitRepository extends JpaRepository<FavoriteBait, Long> {
+    boolean existsByName(String name);
+
+    FavoriteBait findByName(String name);
+
+
 }

@@ -13,6 +13,8 @@ import castilho.APIStellarBlade.exception.Appearance.NanoSuit.NanoSuitAlreadyExi
 import castilho.APIStellarBlade.exception.Appearance.NanoSuit.NanoSuitNotFoundException;
 import castilho.APIStellarBlade.exception.Character.CharacterAlreadyExistException;
 import castilho.APIStellarBlade.exception.Character.CharacterNotFoundException;
+import castilho.APIStellarBlade.exception.Fish.FavoriteBait.FavoriteBaitAlreadyExistException;
+import castilho.APIStellarBlade.exception.Fish.FavoriteBait.FavoriteBaitNotFoundException;
 import castilho.APIStellarBlade.exception.Fish.Size.SizeAlreadyExistException;
 import castilho.APIStellarBlade.exception.Fish.Size.SizeNotFoundException;
 import castilho.APIStellarBlade.exception.Naytiba.NaytibaAlreadyExistsException;
@@ -138,6 +140,16 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(SizeAlreadyExistException.class)
     public ResponseEntity<String> handleSizeAlreadyExistException(SizeAlreadyExistException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(FavoriteBaitNotFoundException.class)
+    public ResponseEntity<String> handleFavoriteBaitNotFoundException(FavoriteBaitNotFoundException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(FavoriteBaitAlreadyExistException.class)
+    public ResponseEntity<String> handleFavoriteBaitAlreadyExistException(FavoriteBaitAlreadyExistException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
     }
 }
