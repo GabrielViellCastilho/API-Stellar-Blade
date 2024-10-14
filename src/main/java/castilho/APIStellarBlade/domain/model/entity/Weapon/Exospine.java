@@ -12,12 +12,12 @@ public class Exospine {
     private Long id;
 
     @Column(nullable = false, unique = true, length = 50)
-    private String nome;
+    private String name;
 
-    @Column(nullable = false, unique = true, precision = 1)
+    @Column(nullable = false,  precision = 1)
     private int numberOfStars;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @ManyToMany (fetch = FetchType.EAGER)
     private List<StatusExospine> statusExospines;;
 
     @Column(length = 500, nullable = false, unique = true)
@@ -31,12 +31,20 @@ public class Exospine {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getNumberOfStars() {
+        return numberOfStars;
+    }
+
+    public void setNumberOfStars(int numberOfStars) {
+        this.numberOfStars = numberOfStars;
     }
 
     public List<StatusExospine> getStatusExospines() {

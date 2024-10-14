@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/StatusExospine")
+@RequestMapping("/Exospine/Status")
 public class StatusExpospineController {
      @Autowired
     private StatusExospineService statusExospineService;
