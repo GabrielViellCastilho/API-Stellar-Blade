@@ -27,8 +27,12 @@ import castilho.APIStellarBlade.exception.Skills.Skills.SkillsAlreadyExistExcept
 import castilho.APIStellarBlade.exception.Skills.Skills.SkillsNotFoundException;
 import castilho.APIStellarBlade.exception.Skills.SkillsType.SkillsTypeAlreadyExistException;
 import castilho.APIStellarBlade.exception.Skills.SkillsType.SkillsTypeNotFoundException;
+import castilho.APIStellarBlade.exception.Weapon.Exospine.ExospineAlreadyExistException;
+import castilho.APIStellarBlade.exception.Weapon.Exospine.ExospineNotFoundException;
 import castilho.APIStellarBlade.exception.Weapon.Gear.GearAlreadyExistException;
 import castilho.APIStellarBlade.exception.Weapon.Gear.GearNotFoundException;
+import castilho.APIStellarBlade.exception.Weapon.StatusExospine.StatusExospineAlreadyExistException;
+import castilho.APIStellarBlade.exception.Weapon.StatusExospine.StatusExospineNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -174,6 +178,26 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(GearAlreadyExistException.class)
     public ResponseEntity<String> handleGearAlreadyExistException(GearAlreadyExistException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(StatusExospineNotFoundException.class)
+    public ResponseEntity<String> handleStatusExospineNotFoundException(StatusExospineNotFoundException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(StatusExospineAlreadyExistException.class)
+    public ResponseEntity<String> handleStatusExospineAlreadyExistException(StatusExospineAlreadyExistException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(ExospineNotFoundException.class)
+    public ResponseEntity<String> handleExospineNotFoundException(ExospineNotFoundException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(ExospineAlreadyExistException.class)
+    public ResponseEntity<String> handleExospineAlreadyExistException(ExospineAlreadyExistException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
     }
 }

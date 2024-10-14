@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface StatusExospineRepository extends JpaRepository<StatusExospine, Long> {
+    boolean existsStatusExospineByStatus(String name);
+
+    StatusExospine findStatusExospineByStatus(String name);
 }
