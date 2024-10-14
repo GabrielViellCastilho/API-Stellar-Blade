@@ -38,7 +38,7 @@ public class StatusExpospineController {
 
      @DeleteMapping("/delete/{id}")
     public  ResponseEntity delete(@PathVariable long id) {
-         statusExospineService.deleteExospineById(id);
+         statusExospineService.deleteExospine(id);
          return ResponseEntity.noContent().build();
      }
 }

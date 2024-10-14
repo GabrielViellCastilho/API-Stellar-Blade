@@ -40,7 +40,7 @@ public class SizeController {
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Size> delete(@PathVariable long id) {
-        sizeService.deleteSizeById(id);
+        sizeService.deleteSize(id);
         return  ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 

@@ -23,6 +23,13 @@ public class NaytibaTypeService {
         return naytibaTypeRepository.findById(id).orElseThrow(()-> new NaytibaTypeNotFoundException(id));
     }
 
+    public NaytibaType getNaytibaTypeByName(String name) {
+        if (!naytibaTypeRepository.existsByType(name)){
+            throw new NaytibaTypeNotFoundException(name);
+        }
+        return naytibaTypeRepository.findByType(name);
+    }
+
     public NaytibaType createNaytibaType(NaytibaTypeRequestDTO naytibaTypeRequestDTO) {
         NaytibaType naytibaType = new NaytibaType();
         naytibaType.setType(naytibaTypeRequestDTO.getType());
@@ -35,7 +42,7 @@ public class NaytibaTypeService {
         return naytibaTypeRepository.findByType(naytibaTypeRequestDTO.getType());
     }
 
-    public void deleteNaytibaTypeById(long id) {
+    public void deleteNaytibaType(long id) {
         if (!naytibaTypeRepository.existsById(id)){
             throw new NaytibaTypeNotFoundException(id);
         }

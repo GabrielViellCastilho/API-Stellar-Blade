@@ -63,7 +63,7 @@ public class ExospineService {
         return exospineRepository.save(exospine);
     }
 
-    public void deleteExospineById(long id){
+    public void deleteExospine(long id){
         if (!exospineRepository.existsById(id)){
             throw new ExospineNotFoundException(id);
         }

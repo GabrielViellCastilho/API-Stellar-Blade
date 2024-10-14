@@ -64,7 +64,7 @@ public class NaytibaService {
         return reponse;
     }
 
-    public void deleteNaytibaById(long id) {
+    public void deleteNaytiba(long id) {
         if (!naytibaRepository.existsById(id)) {
             throw new NaytibaNotFoundException(id);
         }

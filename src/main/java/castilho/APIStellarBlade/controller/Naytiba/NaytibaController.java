@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/naytiba")
+@RequestMapping("/Naytiba")
 public class NaytibaController {
 
 
@@ -30,25 +30,24 @@ public class NaytibaController {
     }
 
     @GetMapping("/search/name/{name}")
-    public ResponseEntity<NaytibaDTO> searchNaytibaByName(@PathVariable String name) {
+    public ResponseEntity<NaytibaDTO> getNaytibaByName(@PathVariable String name) {
         return ResponseEntity.ok((naytibaService.getNaytibaByName(name)));
     }
 
     @GetMapping("/search/id/{id}")
-    public ResponseEntity<NaytibaDTO> searchNaytibaById(@PathVariable Long id) {
+    public ResponseEntity<NaytibaDTO> getNaytibaById(@PathVariable Long id) {
         return ResponseEntity.ok(naytibaService.getNaytibaById(id));
     }
 
 
     @PostMapping("/create")
-    public ResponseEntity<NaytibaDTO> createNaytiba(@RequestBody NaytibaRequestDTO naytibaRequestDTO) {
-        NaytibaDTO result = naytibaService.createNaytiba(naytibaRequestDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(result);
+    public ResponseEntity<NaytibaDTO> create(@RequestBody NaytibaRequestDTO naytibaRequestDTO) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(naytibaService.createNaytiba(naytibaRequestDTO));
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> deleteNaytiba(@PathVariable Long id){
-        naytibaService.deleteNaytibaById(id);
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        naytibaService.deleteNaytiba(id);
         return ResponseEntity.noContent().build();
     }
 }

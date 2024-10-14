@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/SkillsType")
+@RequestMapping("/Skills/Type")
 public class SkillsTypeController {
 
     @Autowired
     private SkillsTypeService skillsTypeService;
 
     @GetMapping
-    public ResponseEntity<List<SkillsType>> getAllSkillsType() {
+    public ResponseEntity<List<SkillsType>> getAll() {
         return ResponseEntity.ok(skillsTypeService.getAllSkillsType());
     }
 
@@ -33,14 +33,13 @@ public class SkillsTypeController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<SkillsType> createSkillsType(@RequestBody SkillsTypeRequestDTO skillsTypeRequestDTO) {
-        SkillsType skillsType = skillsTypeService.createSkillsType(skillsTypeRequestDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(skillsType);
+    public ResponseEntity<SkillsType> create(@RequestBody SkillsTypeRequestDTO skillsTypeRequestDTO) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(skillsTypeService.createSkillsType(skillsTypeRequestDTO));
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<SkillsType> deleteSkillsType(@PathVariable long id) {
-        skillsTypeService.DeleteSkillsTypeById(id);
+    public ResponseEntity<SkillsType> delete(@PathVariable long id) {
+        skillsTypeService.DeleteSkillsType(id);
         return ResponseEntity.noContent().build();
     }
 

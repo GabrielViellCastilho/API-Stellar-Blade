@@ -23,7 +23,7 @@ public class FaceDecorationController {
     }
 
     @GetMapping("/search/name/{name}")
-    public ResponseEntity<FaceDecoration> searchByName(@PathVariable String name) {
+    public ResponseEntity<FaceDecoration> getByName(@PathVariable String name) {
         return ResponseEntity.ok(faceDecorationService.getByName(name));
     }
 
@@ -34,8 +34,7 @@ public class FaceDecorationController {
 
     @PostMapping("/create")
     public ResponseEntity<FaceDecoration> create(@RequestBody FaceDecorationDTO faceDecorationDTO) {
-        FaceDecoration faceDecoration = faceDecorationService.createFaceDecoration(faceDecorationDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(faceDecoration);
+        return ResponseEntity.status(HttpStatus.CREATED).body(faceDecorationService.createFaceDecoration(faceDecorationDTO));
     }
 
     @DeleteMapping("/delete/{id}")

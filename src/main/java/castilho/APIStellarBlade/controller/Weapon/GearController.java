@@ -37,7 +37,7 @@ public class GearController {
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity delete(@PathVariable long id) {
-        gearService.deleteGearById(id);
+        gearService.deleteGear(id);
         return ResponseEntity.noContent().build();
     }
 }

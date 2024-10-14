@@ -23,7 +23,7 @@ public class DroneAppearanceController {
     }
 
     @GetMapping("/search/name/{name}")
-    public ResponseEntity<DroneAppearance> searchByName(@PathVariable String name) {
+    public ResponseEntity<DroneAppearance> getByName(@PathVariable String name) {
         return ResponseEntity.ok(droneAppearanceService.getByName(name));
     }
 
@@ -34,8 +34,7 @@ public class DroneAppearanceController {
 
     @PostMapping("/create")
     public ResponseEntity<DroneAppearance> create(@RequestBody DroneAppearanceRequestDTO droneAppearanceRequestDTO) {
-        DroneAppearance droneAppearance = droneAppearanceService.createDroneAppearance(droneAppearanceRequestDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(droneAppearance);
+        return ResponseEntity.status(HttpStatus.CREATED).body(droneAppearanceService.createDroneAppearance(droneAppearanceRequestDTO));
     }
 
     @DeleteMapping("/delete/{id}")

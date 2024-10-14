@@ -18,7 +18,7 @@ public class SkillsController {
     private SkillsService skillsService;
 
    @GetMapping
-    public ResponseEntity<List<Skills>> getAllSkills() {
+    public ResponseEntity<List<Skills>> getAll() {
        return ResponseEntity.ok(skillsService.getAllSkills());
    }
 
@@ -34,13 +34,12 @@ public class SkillsController {
 
    @PostMapping("/create")
     public ResponseEntity<Skills> createSkill(@RequestBody SkillsRequestDTO skillsRequestDTO) {
-       Skills skills = skillsService.createSkills(skillsRequestDTO);
-       return ResponseEntity.status(HttpStatus.CREATED).body(skills);
+       return ResponseEntity.status(HttpStatus.CREATED).body(skillsService.createSkills(skillsRequestDTO));
    }
 
    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Skills> deleteSkill(@PathVariable long id) {
-       skillsService.DeleteSkillsById(id);
+       skillsService.DeleteSkills(id);
        return ResponseEntity.noContent().build();
    }
 

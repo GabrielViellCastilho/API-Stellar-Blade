@@ -43,7 +43,7 @@ public class SizeService {
         return sizeRepository.save(size);
     }
 
-    public void deleteSizeById(long id) {
+    public void deleteSize(long id) {
         if (!sizeRepository.existsById(id)) {
             throw new SizeNotFoundException(id);
         }

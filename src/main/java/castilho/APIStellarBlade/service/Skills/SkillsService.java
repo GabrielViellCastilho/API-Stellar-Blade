@@ -9,7 +9,6 @@ import castilho.APIStellarBlade.exception.Skills.Skills.SkillsAlreadyExistExcept
 import castilho.APIStellarBlade.exception.Skills.Skills.SkillsNotFoundException;
 import castilho.APIStellarBlade.exception.Skills.SkillsType.SkillsTypeNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -57,7 +56,7 @@ public class SkillsService {
        return skills;
     }
 
-    public void DeleteSkillsById(long id) {
+    public void DeleteSkills(long id) {
         if (!skillsRepository.existsById(id)) {
             throw new SkillsNotFoundException(id);
         }

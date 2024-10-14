@@ -45,7 +45,7 @@ public class SkillsTypeService {
         return skillsType;
     }
 
-    public void DeleteSkillsTypeById(long id) {
+    public void DeleteSkillsType(long id) {
         if (!skillsTypeRepository.existsById(id)) {
             throw new SkillsTypeNotFoundException(id);
         }

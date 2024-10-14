@@ -18,12 +18,12 @@ public class HairsController {
     private HairsService hairsService;
 
     @GetMapping
-    public ResponseEntity<List<Hairs>> getAllHairs() {
+    public ResponseEntity<List<Hairs>> getAll() {
         return ResponseEntity.ok(hairsService.getAllHairs());
     }
 
     @GetMapping("/search/name/{name}")
-    public ResponseEntity<Hairs> searchByName(@PathVariable String name) {
+    public ResponseEntity<Hairs> getByName(@PathVariable String name) {
         return ResponseEntity.ok(hairsService.getByName(name));
     }
 
@@ -34,8 +34,7 @@ public class HairsController {
 
     @PostMapping("/create")
     public ResponseEntity<Hairs> create(@RequestBody HairsRequestDTO hairsRequestDTO) {
-        Hairs hair = hairsService.createHairs(hairsRequestDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(hair);
+        return ResponseEntity.status(HttpStatus.CREATED).body(hairsService.createHairs(hairsRequestDTO));
     }
 
     @DeleteMapping("/delete/{id}")

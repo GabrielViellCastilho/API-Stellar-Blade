@@ -23,7 +23,7 @@ public class EarringsController {
     }
 
     @GetMapping("/search/name/{name}")
-    public ResponseEntity<Earrings> searchByName(@PathVariable String name) {
+    public ResponseEntity<Earrings> getByName(@PathVariable String name) {
         return ResponseEntity.ok(earringsService.getByName(name));
     }
 
@@ -34,8 +34,7 @@ public class EarringsController {
 
     @PostMapping("/create")
     public ResponseEntity<Earrings> create(@RequestBody EarringsRequestDTO earringsRequestDTO) {
-        Earrings earrings = earringsService.createEarrings(earringsRequestDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(earrings);
+        return ResponseEntity.status(HttpStatus.CREATED).body(earringsService.createEarrings(earringsRequestDTO));
     }
 
     @DeleteMapping("/delete/{id}")

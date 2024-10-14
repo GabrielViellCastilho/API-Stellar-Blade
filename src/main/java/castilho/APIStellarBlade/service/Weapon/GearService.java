@@ -45,7 +45,7 @@ public class GearService {
         return gearRepository.save(gear);
     }
 
-    public void deleteGearById(long id) {
+    public void deleteGear(long id) {
         if (!gearRepository.existsById(id)) {
             throw new GearNotFoundException(id);
         }

@@ -39,7 +39,7 @@ public class ExospineController {
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity delete(@PathVariable long id){
-        exospineService.deleteExospineById(id);
+        exospineService.deleteExospine(id);
         return ResponseEntity.noContent().build();
     }
 }

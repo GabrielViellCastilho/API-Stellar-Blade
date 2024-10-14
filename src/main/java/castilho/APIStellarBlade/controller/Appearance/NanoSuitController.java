@@ -23,7 +23,7 @@ public class NanoSuitController {
     }
 
     @GetMapping("/search/name/{name}")
-    public ResponseEntity<NanoSuit> searchByName(@PathVariable String name) {
+    public ResponseEntity<NanoSuit> getByName(@PathVariable String name) {
         return ResponseEntity.ok(nanoSuitService.getByName(name));
     }
 
@@ -34,8 +34,7 @@ public class NanoSuitController {
 
     @PostMapping("/create")
     public ResponseEntity<NanoSuit> create(@RequestBody NanoSuitRequestDTO nanoSuitRequestDTO) {
-        NanoSuit nanoSuit = nanoSuitService.createNanoSuit(nanoSuitRequestDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(nanoSuit);
+        return ResponseEntity.status(HttpStatus.CREATED).body(nanoSuitService.createNanoSuit(nanoSuitRequestDTO));
     }
 
     @DeleteMapping("/delete/{id}")
