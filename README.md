@@ -56,7 +56,7 @@ Welcome to this unofficial RESTful API created by a fan game **Stellar Blade**. 
 
 4. **Run the `ApiStellarBladeApplication` file**
 
-5. **Access the API at `http://localhost:8080`**
+5. **Access the API at `http://localhost:8080/{api-endpoint}`** or **`http://localhost:8080/swagger-ui/index.html`**
 
 ### Contact
 
