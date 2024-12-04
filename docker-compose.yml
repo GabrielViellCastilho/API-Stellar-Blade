@@ -1,0 +1,28 @@
+services:
+  db:
+    image: mysql:8.0.31
+    restart: always
+    volumes:
+      - db:/var/lib/mysql
+    expose:
+      - "3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: password123
+      MYSQL_DATABASE: api
+
+  api:
+    image: api_stellar_blade
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_USERNAME=root
+      - MYSQL_PASSWORD=password123
+      - MYSQL_DATABASE=api
+      - MYSQL_PORT=3306
+
+volumes:
+  db:
