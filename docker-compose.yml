@@ -8,7 +8,7 @@ services:
       - "3306"
     environment:
       MYSQL_ROOT_PASSWORD: password123
-      MYSQL_DATABASE: api
+      MYSQL_DATABASE: DBApiStellarBlade
 
   api:
     image: api_stellar_blade
@@ -21,7 +21,7 @@ services:
       - MYSQL_HOST=db
       - MYSQL_USERNAME=root
       - MYSQL_PASSWORD=password123
-      - MYSQL_DATABASE=api
+      - MYSQL_DATABASE=DBApiStellarBlade
       - MYSQL_PORT=3306
 
 volumes:
