@@ -27,36 +27,25 @@ Welcome to this unofficial RESTful API created by a fan game **Stellar Blade**. 
    - **[Size](documentation/Fish/Size.md)** - Size categories for fish.
 
 ## Requirements
-- JAVA 21
-- MySQL
+- **Docker**
+- **Docker Compose**
 
-## How to use
+## How to Use
 
-1. **Cloning the project**
+1. **Clone the repository**  
    ```sh
    git clone https://github.com/GabrielViellCastilho/API-Stellar-Blade.git
+   cd API-Stellar-Blade
    ```
 
-2. **Download Maven dependencies in the APIStellarBlade package**
+2. **Start the application**  
    ```sh
-   mvn clean install
+   docker-compose up -d
    ```
 
-3. **Configure the MySQL database in the `application.properties` file**
-
-   Open the `src/main/resources/application.properties` file and configure the database connection:
-   ```properties
-   spring.datasource.url=jdbc:mysql://localhost:3306/your-database
-   spring.datasource.username=your-username
-   spring.datasource.password=your-password
-   ```
-
-   - Replace `your-database` with the name of your MySQL database.
-   - Replace `your-username` and `your-password` with your MySQL username and password.
-
-4. **Run the `ApiStellarBladeApplication` file**
-
-5. **Access the API at `http://localhost:8080/{api-endpoint}`** or **`http://localhost:8080/swagger-ui/index.html`**
+3. **Access the API**  
+   - **API Endpoints**: [http://localhost:8080/{api-endpoint}](http://localhost:8080/{api-endpoint})  
+   - **Swagger Documentation**: [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html) 
 
 ### Contact
 
